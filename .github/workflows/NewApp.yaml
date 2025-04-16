@@ -3,12 +3,12 @@ name: Application_pipeline-ymal
 on: 
   workflow_dispatch:
 
-run-name: ubuntu-latest
+# run-name: ubuntu-latest
 
 jobs:
   my_job:
     name: deploy to staging
-    # runs-on: ubuntu-22.04
+    runs-on: ubuntu-22.04
   
     steps:
       - name: Setup Node
