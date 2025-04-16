@@ -13,7 +13,6 @@ jobs:
   
     steps:
 
-      
       - name: Checkout code
         uses: actions/checkout@v3
 
@@ -23,11 +22,7 @@ jobs:
         with:
           node-version: '16.17'
       
-      # - name: npm install
-      #   run: |
-      #       cd Application-data
-      #       npm install
-            # npm run build 
+     
       - name: npm install and build
         run: |
           cd Application-data
