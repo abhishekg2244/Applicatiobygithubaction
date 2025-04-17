@@ -6,7 +6,7 @@ on:
 # run-name: ubuntu-latest
 jobs:
   build:
-    name: deploy to staging
+    name: build to staging
     runs-on: self-hosted  
     steps:
       - name: Checkout code
@@ -34,11 +34,10 @@ jobs:
      - name: Download a Build Artifact
     
      - uses: actions/download-artifact@v4.2.1
-        with:
-       
-         name: my-artifact
+       with:
+        name: my-artifact
           # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-         path: Application-data/build
+        path: Application-data/build/
           
          
     
