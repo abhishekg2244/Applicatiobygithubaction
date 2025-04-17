@@ -27,18 +27,18 @@ jobs:
           name: my-artifact
           path: Application-data/build/ # or path/to/artifact
           
-  deploy:
-    name: deploy to staging
-    runs-on: self-hosted
-    steps:
-     - name: Download a Build Artifact
-    
-     - uses: actions/download-artifact@v4.2.1
-       with:
-        name: my-artifact
-          # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
-        path: Application-data/build/
-          
+    deploy:
+      name: deploy to staging
+      runs-on: self-hosted
+      steps:
+       - name: Download a Build Artifact
+      
+       - uses: actions/download-artifact@v4.2.1
+         with:
+          name: my-artifact
+            # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+          path: Application-data/build/
+            
          
     
   
