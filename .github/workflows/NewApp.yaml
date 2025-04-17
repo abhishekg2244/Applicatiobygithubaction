@@ -27,7 +27,7 @@ jobs:
           name: my-artifact
           path: Application-data/build/ # or path/to/artifact
           
-    deploy:
+  deploy:
       name: deploy to staging
       runs-on: self-hosted
       steps:
