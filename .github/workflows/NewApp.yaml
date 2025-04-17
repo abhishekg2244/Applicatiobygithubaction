@@ -4,37 +4,44 @@ on:
   workflow_dispatch:
 
 # run-name: ubuntu-latest
-
 jobs:
-  my_job:
+  build:
     name: deploy to staging
-    runs-on: self-hosted
-    
-  
+    runs-on: self-hosted  
     steps:
-
       - name: Checkout code
-        uses: actions/checkout@v3
-
-    
+        uses: actions/checkout@v3    
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
-          node-version: '16.17'
-      
-     
+          node-version: '16.17'           
       - name: npm install and build
         run: |
           cd Application-data
           npm install
           npm run build
         env:
-          CI: false
-              
-        
+          CI: false                 
       - uses: actions/upload-artifact@v4
         with:
           name: my-artifact
           path: Application-data/build/ # or path/to/artifact
+          
+  deploy:
+    name: deploy to staging
+    runs-on: self-hosted
+    steps:
+     - name: Download a Build Artifact
+    
+     - uses: actions/download-artifact@v4.2.1
+        with:
+       
+          name: my-artifact
+          # Destination path. Supports basic tilde expansion. Defaults to $GITHUB_WORKSPACE
+          path:Application-data/build
+          
+         
+    
+  
       
             
